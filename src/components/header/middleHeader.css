@@ -1,0 +1,30 @@
+#inputSearchContainer {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+#searchInput {
+  width: 14em;
+  height: 30px;
+  font-size: 1.3em;
+  text-indent: 1em;
+  color: gray;
+  background: black;
+  border: none;
+}
+
+#searchInput:focus {
+  outline: none;
+}
+
+#searchSubmitButton {
+  height: 30px;
+  width: 65px;
+  border: none;
+  background: rgb(77, 77, 77);
+}
+
+#searchMagIcon {
+  color: white;
+}

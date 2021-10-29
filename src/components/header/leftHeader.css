@@ -1,0 +1,30 @@
+#leftHeader {
+  position: fixed;
+  left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+#hamburgerMenuIcon {
+  font-size: 1.3em;
+  margin-right: 1em;
+}
+
+#youtubeIconContainer {
+  display: flex;
+  align-items: center;
+}
+
+#youtubeIcon {
+  height: 2.5em;
+  width: 2.5em;
+}
+
+#youtubeIconText {
+  height: 35%;
+  width: 35%;
+}
+
+.iconTextLetter {
+  color: white;
+}
