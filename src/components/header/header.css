@@ -1,5 +1,25 @@
 header {
-  border: 5px solid yellow;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  /* background: rgba(33, 33, 33, 0.98); */
   height: 4em;
   width: 100vw;
+  /* color: white; */
+}
+
+#leftHeader {
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+}
+
+#hamburgerMenuIcon {
+  font-size: 1.5em;
+  margin-right: 1em;
+}
+
+#youtubeIcon {
+  height: 2.5em;
+  width: 2.5em;
 }
