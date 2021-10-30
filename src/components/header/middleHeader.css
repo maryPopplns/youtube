@@ -1,7 +1,17 @@
 #inputSearchContainer {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   color: white;
+}
+
+/* for suggestions background  */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px black inset;
+  -webkit-text-fill-color: white;
+  caret-color: white;
+  color: white;
+  font-size: 1.3em;
 }
 
 #searchInput {
@@ -9,7 +19,7 @@
   height: 30px;
   font-size: 1.3em;
   text-indent: 1em;
-  color: gray;
+  color: white;
   background: black;
   border: none;
 }
