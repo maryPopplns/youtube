@@ -1,6 +1,16 @@
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+// import app from '../../firebase-config';
 import './rightHeader.css';
 
 export default function RightHeader() {
+  function signInHandler() {
+    (async function signIn() {
+      // Sign in Firebase using popup auth and Google as the identity provider.
+      var provider = new GoogleAuthProvider();
+      await signInWithPopup(getAuth(), provider);
+    })();
+  }
+
   return (
     <div id='rightHeaderContainer'>
       <div id='addVideoIconContainer'>
@@ -11,7 +21,7 @@ export default function RightHeader() {
           ></path>
         </svg>
       </div>
-      <button>Sign In</button>
+      <button onClick={signInHandler}>Sign In</button>
     </div>
   );
 }
