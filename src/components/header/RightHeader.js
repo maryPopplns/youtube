@@ -1,6 +1,8 @@
+import { getAuth } from 'firebase/auth';
+import { useState } from 'react';
 import Login from './Login';
 import Logout from './Logout';
-import { useState } from 'react';
+import defaultPofile from '../../assets/profile_placeholder.png';
 import './rightHeader.css';
 
 export default function RightHeader() {
@@ -10,8 +12,19 @@ export default function RightHeader() {
     setLoggedIn((prevState) => !prevState);
   }
 
+  const LOGGED_IN_WIDTH = {
+    width: '12em',
+  };
+
+  const LOGGED_OUT_WIDTH = {
+    width: '10em',
+  };
+
   return (
-    <div id='rightHeaderContainer'>
+    <div
+      style={loggedIn ? LOGGED_IN_WIDTH : LOGGED_OUT_WIDTH}
+      id='rightHeaderContainer'
+    >
       <div id='addVideoIconContainer'>
         <svg viewBox='0 0 24 24'>
           <path
@@ -20,6 +33,12 @@ export default function RightHeader() {
           ></path>
         </svg>
       </div>
+      {}
+      <img
+        id='profilePicture'
+        src={loggedIn ? getAuth().currentUser.photoURL : defaultPofile}
+        alt='profile pic'
+      />
       {loggedIn ? (
         <Logout logClickHandler={logClickHandler} />
       ) : (
