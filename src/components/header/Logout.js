@@ -1,4 +1,5 @@
 import { getAuth, signOut } from 'firebase/auth';
+import './signInOutButton.css';
 
 export default function Logout(props) {
   function logOutHandler() {
@@ -6,5 +7,9 @@ export default function Logout(props) {
     props.logClickHandler();
   }
 
-  return <button onClick={logOutHandler}>Sign Out</button>;
+  return (
+    <button className='signInOutButton' onClick={logOutHandler}>
+      Sign Out
+    </button>
+  );
 }

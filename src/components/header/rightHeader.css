@@ -5,8 +5,7 @@
   right: 1em;
   display: flex;
   align-items: center;
-  border: 1px solid white;
-  width: 10em;
+  width: 12em;
 }
 
 #addVideoIconContainer {

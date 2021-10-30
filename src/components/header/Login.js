@@ -1,4 +1,5 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import './signInOutButton.css';
 
 export default function Login(props) {
   function signInHandler() {
@@ -9,5 +10,9 @@ export default function Login(props) {
     })();
   }
 
-  return <button onClick={signInHandler}>Sign In</button>;
+  return (
+    <button className='signInOutButton' onClick={signInHandler}>
+      Sign In
+    </button>
+  );
 }

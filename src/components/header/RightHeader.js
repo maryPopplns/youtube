@@ -12,19 +12,8 @@ export default function RightHeader() {
     setLoggedIn((prevState) => !prevState);
   }
 
-  const LOGGED_IN_WIDTH = {
-    width: '12em',
-  };
-
-  const LOGGED_OUT_WIDTH = {
-    width: '10em',
-  };
-
   return (
-    <div
-      style={loggedIn ? LOGGED_IN_WIDTH : LOGGED_OUT_WIDTH}
-      id='rightHeaderContainer'
-    >
+    <div id='rightHeaderContainer'>
       <div id='addVideoIconContainer'>
         <svg viewBox='0 0 24 24'>
           <path

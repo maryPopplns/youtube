@@ -1,0 +1,9 @@
+.signInOutButton {
+  font-weight: 600;
+  height: 2.8em;
+  width: 6em;
+  border: none;
+  border-radius: 0.2em;
+  background: rgb(48, 134, 255);
+  color: white;
+}
