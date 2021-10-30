@@ -1,14 +1,13 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-// import app from '../../firebase-config';
+import Login from './Login';
+import Logout from './Logout';
+import { useState } from 'react';
 import './rightHeader.css';
 
 export default function RightHeader() {
-  function signInHandler() {
-    (async function signIn() {
-      // Sign in Firebase using popup auth and Google as the identity provider.
-      var provider = new GoogleAuthProvider();
-      await signInWithPopup(getAuth(), provider);
-    })();
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  function logClickHandler() {
+    setLoggedIn((prevState) => !prevState);
   }
 
   return (
@@ -21,7 +20,11 @@ export default function RightHeader() {
           ></path>
         </svg>
       </div>
-      <button onClick={signInHandler}>Sign In</button>
+      {loggedIn ? (
+        <Logout logClickHandler={logClickHandler} />
+      ) : (
+        <Login logClickHandler={logClickHandler} />
+      )}
     </div>
   );
 }

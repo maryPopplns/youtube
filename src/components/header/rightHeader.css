@@ -1,4 +1,6 @@
 #rightHeaderContainer {
+  display: flex;
+  justify-content: space-around;
   position: fixed;
   right: 1em;
   display: flex;
