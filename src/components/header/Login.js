@@ -6,7 +6,7 @@ export default function Login(props) {
     (async function signIn() {
       var provider = new GoogleAuthProvider();
       await signInWithPopup(getAuth(), provider);
-      await props.logClickHandler();
+      await props.logInOutClickHandler();
     })();
   }
 

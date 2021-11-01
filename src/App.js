@@ -14,11 +14,15 @@ import './App.css';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [inputValue, setInputValue] = useState('');
   // initialize firebase
-  const APP = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
-  function logClickHandler() {
+  function logInOutClickHandler() {
     setLoggedIn((prevState) => !prevState);
+  }
+  function inputOnChangeHandler(event) {
+    setInputValue(event.target.value);
   }
 
   return (
@@ -31,12 +35,26 @@ function App() {
           </Link>
         </div>
         <form id='middleHeaderForm' onSubmit={(e) => e.preventDefault()}>
-          <input type='text' placeholder='Search' id='searchInput'></input>
-          <button id='searchSubmitButton'>
+          <input
+            onChange={inputOnChangeHandler}
+            type='text'
+            placeholder='Search'
+            value={inputValue}
+            id='searchInput'
+          ></input>
+          {/* only renders a link when theres text in the input */}
+          {inputValue && (
             <Link to='/searchResults'>
-              <i id='searchMagIcon' className='fas fa-search'></i>
+              <button id='searchSubmitButton'>
+                <i id='searchMagIcon' className='fas fa-search'></i>
+              </button>
             </Link>
-          </button>
+          )}
+          {!inputValue && (
+            <button id='searchSubmitButton'>
+              <i id='searchMagIcon' className='fas fa-search'></i>
+            </button>
+          )}
         </form>
         <div id='rightHeaderContainer'>
           <Link to='/upload'>
@@ -55,18 +73,20 @@ function App() {
             alt='profile pic'
           />
           {loggedIn ? (
-            <Logout logClickHandler={logClickHandler} />
+            <Logout logInOutClickHandler={logInOutClickHandler} />
           ) : (
-            <Login logClickHandler={logClickHandler} />
+            <Login logInOutClickHandler={logInOutClickHandler} />
           )}
         </div>
       </header>
       <Switch>
-        <Route path='/searchResults'>
-          <SearchResults />
-        </Route>
+        {inputValue && (
+          <Route path='/searchResults'>
+            <SearchResults />
+          </Route>
+        )}
         <Route path='/upload'>
-          <Upload />
+          <Upload loggedIn={loggedIn} />
         </Route>
         <Route path='/'>
           <Home />

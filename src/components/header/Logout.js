@@ -4,7 +4,7 @@ import './logInOutButton.css';
 export default function Logout(props) {
   function logOutHandler() {
     signOut(getAuth());
-    props.logClickHandler();
+    props.logInOutClickHandler();
   }
 
   return (
