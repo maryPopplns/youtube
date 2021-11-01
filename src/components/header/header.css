@@ -9,3 +9,15 @@ header {
   width: 100vw;
   color: white;
 }
+
+#leftHeader {
+  position: fixed;
+  left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+#hamburgerMenuIcon {
+  font-size: 1.3em;
+  margin-right: 1em;
+}

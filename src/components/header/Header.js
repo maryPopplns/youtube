@@ -1,14 +1,18 @@
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import YouTubeLogo from './YouTubeLogo';
 import './header.css';
-import LeftHeader from './LeftHeader';
-import MiddleHeader from './MiddleHeader';
-import RightHeader from './RightHeader';
 
 export default function Header() {
   return (
-    <header>
-      <LeftHeader />
-      <MiddleHeader />
-      <RightHeader />
-    </header>
+    <BrowserRouter>
+      <header>
+        <div id='leftHeader'>
+          <i id='hamburgerMenuIcon' className='fas fa-bars'></i>
+          <Link to='/home'>
+            <YouTubeLogo />
+          </Link>
+        </div>
+      </header>
+    </BrowserRouter>
   );
 }

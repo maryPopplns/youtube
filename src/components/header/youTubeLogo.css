@@ -1,0 +1,22 @@
+#youtubeIconContainer {
+  display: flex;
+  align-items: center;
+}
+
+#youtubeIcon {
+  height: 2.5em;
+  width: 2.5em;
+}
+
+#youTubeTextContainer {
+  width: 4.5em;
+}
+
+#youtubeIconText {
+  /* height: 6.5em;
+  width: 6.5em; */
+}
+
+.iconTextLetter {
+  color: white;
+}

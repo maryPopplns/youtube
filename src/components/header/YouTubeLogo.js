@@ -1,13 +1,12 @@
-import './leftHeader.css';
+import './youTubeLogo.css';
 import youtubeIcon from '../../assets/youtubeIcon.png';
 
-export default function LeftHeader() {
+export default function YouTubeLogo() {
   return (
-    <div id='leftHeader'>
-      <i id='hamburgerMenuIcon' className='fas fa-bars'></i>
-      <div id='youtubeIconContainer'>
-        <img id='youtubeIcon' src={youtubeIcon} alt='youtube icon'></img>
-        <svg id='youtubeIconText' viewBox='30 0 90 20'>
+    <div id='youtubeIconContainer'>
+      <img id='youtubeIcon' src={youtubeIcon} alt='youtube icon'></img>
+      <div id='youTubeTextContainer'>
+        <svg id='youtubeIconText' viewBox='30 0 60 20'>
           <g>
             <path
               className='iconTextLetter'
