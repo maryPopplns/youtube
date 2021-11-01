@@ -6,7 +6,7 @@ export default function YouTubeLogo() {
     <div id='youtubeIconContainer'>
       <img id='youtubeIcon' src={youtubeIcon} alt='youtube icon'></img>
       <div id='youTubeTextContainer'>
-        <svg id='youtubeIconText' viewBox='30 0 60 20'>
+        <svg viewBox='30 0 60 20'>
           <g>
             <path
               className='iconTextLetter'

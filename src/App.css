@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(33, 33, 33, 0.98);
+  height: 4em;
+  width: 100vw;
+  color: white;
+}
+
+#leftHeader {
+  position: fixed;
+  left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+#hamburgerMenuIcon {
+  font-size: 1.3em;
+  margin-right: 1em;
+}
+
+/* ****************** */
+
+#middleHeaderForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+/* for suggestions background  */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px black inset;
+  -webkit-text-fill-color: white;
+  caret-color: white;
+  color: white;
+  font-size: 1.3em;
+}
+
+#searchInput {
+  width: 14em;
+  height: 30px;
+  font-size: 1.3em;
+  text-indent: 1em;
+  color: white;
+  background: black;
+  border: none;
+}
+
+#searchInput:focus {
+  outline: none;
+}
+
+#searchSubmitButton {
+  height: 30px;
+  width: 65px;
+  border: none;
+  background: rgb(77, 77, 77);
+}
+
+#searchMagIcon {
+  color: white;
+}
+
+#rightHeaderContainer {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  right: 1em;
+  display: flex;
+  align-items: center;
+  width: 12em;
+}
+
+#addVideoIconContainer {
+  color: white;
+  width: 2em;
+}
+
+#profilePicture {
+  border-radius: 50%;
+  height: 2em;
+  width: 2em;
+}
