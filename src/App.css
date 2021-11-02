@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap');
 
 header {
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,8 +22,6 @@ header {
   font-size: 1.3em;
   margin-right: 1em;
 }
-
-/* ****************** */
 
 #middleHeaderForm {
   display: flex;

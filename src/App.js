@@ -42,7 +42,7 @@ function App() {
             value={inputValue}
             id='searchInput'
           ></input>
-          {/* only renders a link when theres text in the input */}
+          {/* only renders a link when theres text in the */}
           {inputValue && (
             <Link to='/searchResults'>
               <button id='searchSubmitButton'>
