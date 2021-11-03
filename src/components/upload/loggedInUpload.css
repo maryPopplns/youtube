@@ -3,20 +3,21 @@
   flex-direction: column;
   align-items: center;
   min-height: calc(100vh - 64px);
-  /* background: black; */
+  background: black;
   margin-top: 64px;
 }
 
 #uploadVideoForm {
   padding: 1em 1em;
-  border: 0.25em solid black;
+  border: 0.2em solid black;
   margin-top: 2em;
 }
 
 #loggedInUploadHeading {
   font-size: 3em;
+  text-decoration: underline;
   margin-top: 1em;
-  /* color: white; */
+  color: white;
 }
 
 .inputContainer {
@@ -24,14 +25,11 @@
   justify-content: space-between;
   margin: 0.25em;
   width: 15em;
+  font-size: 2em;
+  color: white;
 }
 
-#videoTitle {
-  width: 140px;
+.uploadVideoInput {
   box-sizing: border-box;
-}
-
-#videoDescription {
-  box-sizing: border-box;
-  width: 140px;
+  width: 20em;
 }
