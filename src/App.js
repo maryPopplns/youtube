@@ -42,7 +42,7 @@ function App() {
             value={inputValue}
             id='searchInput'
           ></input>
-          {/* only renders a link when theres text in the */}
+          {/* only renders a link when theres text in the input */}
           {inputValue && (
             <Link to='/searchResults'>
               <button id='searchSubmitButton'>
@@ -50,11 +50,13 @@ function App() {
               </button>
             </Link>
           )}
+          {/* TODO need to change logic, this sucks  */}
           {!inputValue && (
             <button id='searchSubmitButton'>
               <i id='searchMagIcon' className='fas fa-search'></i>
             </button>
           )}
+          {/* only renders a link when theres text in the input */}
         </form>
         <div id='rightHeaderContainer'>
           <Link to='/upload'>
