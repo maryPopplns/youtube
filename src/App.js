@@ -82,7 +82,7 @@ function App() {
       <Switch>
         {inputValue && (
           <Route path='/searchResults'>
-            <SearchResults />
+            <SearchResults inputValue={inputValue} />
           </Route>
         )}
         <Route path='/upload'>

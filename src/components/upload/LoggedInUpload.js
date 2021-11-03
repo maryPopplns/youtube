@@ -2,5 +2,5 @@ import './loggedInUpload.css';
 
 export default function LoggedInUpload() {
   // TODO create logic to upload videos
-  return <div>logged in</div>;
+  return <main id='loggedInUploadContainer'>upload videos</main>;
 }

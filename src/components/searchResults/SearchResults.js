@@ -1,3 +1,5 @@
-export default function SearchResults() {
-  return <div>search results</div>;
+import './searchResults.css';
+
+export default function SearchResults(props) {
+  return <main id='searchResultsContainer'>results</main>;
 }
