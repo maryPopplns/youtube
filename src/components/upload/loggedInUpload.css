@@ -7,8 +7,31 @@
   margin-top: 64px;
 }
 
+#uploadVideoForm {
+  padding: 1em 1em;
+  border: 0.25em solid black;
+  margin-top: 2em;
+}
+
 #loggedInUploadHeading {
   font-size: 3em;
   margin-top: 1em;
   /* color: white; */
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.25em;
+  width: 15em;
+}
+
+#videoTitle {
+  width: 140px;
+  box-sizing: border-box;
+}
+
+#videoDescription {
+  box-sizing: border-box;
+  width: 140px;
 }
