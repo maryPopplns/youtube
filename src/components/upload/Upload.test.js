@@ -11,5 +11,5 @@ test('while logged out, users cannot access upload videos route', () => {
 
 test('while logged in, users can access upload videos route', () => {
   render(<Upload loggedIn={true} />);
-  expect(screen.getByRole('heading')).toHaveTextContent('Press + to continue');
+  expect(screen.getByRole('heading')).toHaveTextContent('Upload Video');
 });
