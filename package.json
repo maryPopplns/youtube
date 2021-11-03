@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --verbose",
     "eject": "react-scripts eject",
     "add": "git add . && git commit && git push origin $(git rev-parse --abbrev-ref HEAD)",
     "deploy": "gh-pages -d build"
