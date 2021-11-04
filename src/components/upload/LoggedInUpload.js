@@ -66,6 +66,8 @@ export default function LoggedInUpload() {
           ></textarea>
         </div>
       </form>
+      {console.log(video)}
+      {console.log(thumbnail)}
     </main>
   );
 }
