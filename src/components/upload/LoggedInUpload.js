@@ -1,3 +1,5 @@
+import AddVideo from './AddVideo';
+import AddThumbnail from './AddThumbnail';
 import { useState } from 'react';
 import './loggedInUpload.css';
 
@@ -5,19 +7,33 @@ export default function LoggedInUpload() {
   const [videoTitle, setVideoTitle] = useState('');
   const [videoDescription, setVideoDescription] = useState('');
   const [videoTags, setVideoTags] = useState('');
-  // TODO create logic to upload videos
+  const [video, setVideo] = useState(null);
+  const [thumbnail, setThumbnail] = useState(null);
 
   const videoTitleHandler = (event) => setVideoTitle(event.target.value);
   const videoDescriptionHandler = (event) =>
     setVideoDescription(event.target.value);
   const videoTagsHandler = (event) => setVideoTags(event.target.value);
+  function setVideoHandler(input) {
+    setVideo(input);
+    console.log('video');
+  }
+  function setThumbnailHandler(input) {
+    setThumbnail(input);
+    console.log('thumbnail');
+  }
 
   return (
     <main id='loggedInUploadContainer'>
       <h2 id='loggedInUploadHeading'>Upload Video</h2>
       <form id='uploadVideoForm'>
+        <AddVideo video={video} setVideoHandler={setVideoHandler} />
+        <AddThumbnail
+          thumbnail={thumbnail}
+          setThumbnailHandler={setThumbnailHandler}
+        />
         <div className='inputContainer'>
-          <label for='videoTitle'>Title: </label>
+          <label htmlFor='videoTitle'>Title: </label>
           <input
             className='uploadVideoInput'
             type='text'
@@ -29,7 +45,7 @@ export default function LoggedInUpload() {
           ></input>
         </div>
         <div className='inputContainer'>
-          <label for='videoDescription'>Description: </label>
+          <label htmlFor='videoDescription'>Description: </label>
           <textarea
             className='uploadVideoInput'
             id='videoDescription'
@@ -40,7 +56,7 @@ export default function LoggedInUpload() {
           ></textarea>
         </div>
         <div className='inputContainer'>
-          <label for='videoTags'>Tags: </label>
+          <label htmlFor='videoTags'>Tags: </label>
           <textarea
             className='uploadVideoInput'
             id='videoTags'

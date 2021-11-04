@@ -20,6 +20,10 @@
   color: white;
 }
 
+#uploadVideoInput {
+  visibility: hidden;
+}
+
 .inputContainer {
   display: flex;
   justify-content: space-between;
@@ -27,6 +31,20 @@
   width: 15em;
   font-size: 2em;
   color: white;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em;
+  width: 480px;
+  color: white;
+  height: 1em;
+}
+
+.buttonLabel {
+  font-size: 2em;
 }
 
 .uploadVideoInput {
