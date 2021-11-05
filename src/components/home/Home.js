@@ -20,7 +20,7 @@ export default function Home() {
   }, []);
 
   const VIDEO_TILES = videos.map((video, index) => {
-    return <VideoTile key={index} video={video} />;
+    return <VideoTile key={index} video={video} index={index} />;
   });
 
   return <div id='homeContainer'>{VIDEO_TILES}</div>;

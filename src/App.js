@@ -1,6 +1,6 @@
 import { getAuth } from 'firebase/auth';
 import { useState } from 'react';
-import { Routes, BrowserRouter, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
 import firebaseConfig from './firebase-config';
@@ -29,7 +29,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <>
       <header>
         <div id='leftHeader'>
           <i id='hamburgerMenuIcon' className='fas fa-bars'></i>
@@ -94,7 +94,7 @@ function App() {
         <Route path='/upload' element={<Upload loggedIn={loggedIn} />} />
         <Route path='/' element={<Home />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
