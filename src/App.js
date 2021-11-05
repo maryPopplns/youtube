@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
+import Index from './components/index/Index';
 import firebaseConfig from './firebase-config';
 import Login from './components/header/Login';
 import Logout from './components/header/Logout';
@@ -33,14 +34,13 @@ function App() {
       <header>
         <div id='leftHeader'>
           <i id='hamburgerMenuIcon' className='fas fa-bars'></i>
-          <Link to='/'>
+          <Link to='/home'>
             <YouTubeLogo />
           </Link>
         </div>
         <form id='middleHeaderForm' onSubmit={(e) => e.preventDefault()}>
           <input
             onChange={inputOnChangeHandler}
-            type='text'
             placeholder='Search'
             value={inputValue}
             id='searchInput'
@@ -84,6 +84,7 @@ function App() {
           )}
         </div>
       </header>
+
       <Routes>
         {inputValue && (
           <Route
@@ -91,8 +92,9 @@ function App() {
             element={<SearchResults inputValue={inputValue} />}
           />
         )}
+        <Route path='/' element={<Index />} />
         <Route path='/upload' element={<Upload loggedIn={loggedIn} />} />
-        <Route path='/' element={<Home />} />
+        <Route path='/home/*' element={<Home />} />
       </Routes>
     </>
   );
