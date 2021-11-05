@@ -1,0 +1,12 @@
+.videoTile {
+  margin: 0.5em;
+  height: 15em;
+  width: 15em;
+  color: white;
+  border: 1px solid white;
+}
+
+.videoTileThumbnail {
+  height: 10em;
+  width: 10em;
+}

@@ -1,6 +1,6 @@
 import { getAuth } from 'firebase/auth';
 import { useState } from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { Routes, BrowserRouter, Route, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
 import firebaseConfig from './firebase-config';
@@ -13,12 +13,13 @@ import Home from './components/home/Home';
 import defaultPofile from './assets/profile_placeholder.png';
 import './App.css';
 
+// initialize firebase/storage
+const APP = initializeApp(firebaseConfig);
+getStorage(APP);
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  // initialize firebase/storage
-  const APP = initializeApp(firebaseConfig);
-  getStorage(APP);
 
   function logInOutClickHandler() {
     setLoggedIn((prevState) => !prevState);
@@ -83,19 +84,16 @@ function App() {
           )}
         </div>
       </header>
-      <Switch>
+      <Routes>
         {inputValue && (
-          <Route path='/searchResults'>
-            <SearchResults inputValue={inputValue} />
-          </Route>
+          <Route
+            path='/searchResults'
+            element={<SearchResults inputValue={inputValue} />}
+          />
         )}
-        <Route path='/upload'>
-          <Upload loggedIn={loggedIn} />
-        </Route>
-        <Route path='/'>
-          <Home />
-        </Route>
-      </Switch>
+        <Route path='/upload' element={<Upload loggedIn={loggedIn} />} />
+        <Route path='/' element={<Home />} />
+      </Routes>
     </BrowserRouter>
   );
 }

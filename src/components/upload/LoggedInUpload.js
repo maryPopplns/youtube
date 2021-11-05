@@ -9,13 +9,7 @@ import {
   getFirestore,
   collection,
   addDoc,
-  // setDoc,
   serverTimestamp,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  where,
 } from 'firebase/firestore';
 
 export default function LoggedInUpload() {
