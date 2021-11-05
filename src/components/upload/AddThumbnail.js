@@ -7,15 +7,20 @@ export default function AddThumbnail(props) {
 
   return (
     <div className='buttonContainer'>
-      <label htmlFor='uploadThumbnailInput' className='buttonLabel'>
+      <label
+        htmlFor='uploadThumbnailInput'
+        className='buttonLabel'
+        type='button'
+      >
         {thumbnail ? 'successful' : 'click to add thumbnail'}
       </label>
       <input
+        name='uploadThumbnailInput'
         onChange={addThumbnailHandler}
         id='uploadThumbnailInput'
         type='file'
         accept='image/*'
-        required
+        // required
       ></input>
     </div>
   );

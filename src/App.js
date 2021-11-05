@@ -2,21 +2,23 @@ import { getAuth } from 'firebase/auth';
 import { useState } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
+import { getStorage } from 'firebase/storage';
+import firebaseConfig from './firebase-config';
 import Login from './components/header/Login';
 import Logout from './components/header/Logout';
 import YouTubeLogo from './components/header/YouTubeLogo';
 import SearchResults from './components/searchResults/SearchResults';
 import Upload from './components/upload/Upload';
 import Home from './components/home/Home';
-import firebaseConfig from './firebase-config';
 import defaultPofile from './assets/profile_placeholder.png';
 import './App.css';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  // initialize firebase
-  initializeApp(firebaseConfig);
+  // initialize firebase/storage
+  const APP = initializeApp(firebaseConfig);
+  getStorage(APP);
 
   function logInOutClickHandler() {
     setLoggedIn((prevState) => !prevState);

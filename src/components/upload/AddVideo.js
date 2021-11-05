@@ -7,15 +7,16 @@ export default function AddVideo(props) {
 
   return (
     <div className='buttonContainer'>
-      <label htmlFor='uploadVideoInput' className='buttonLabel'>
+      <label htmlFor='uploadVideoInput' className='buttonLabel' type='button'>
         {video ? 'successful' : 'click to add video'}
       </label>
       <input
+        name='uploadVideoInput'
         onChange={addVideoHandler}
         id='uploadVideoInput'
         type='file'
         accept='.mp4'
-        required
+        // required
       ></input>
     </div>
   );
