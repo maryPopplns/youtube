@@ -3,9 +3,17 @@ import Video from '../video/Video';
 import './videoTile.css';
 
 export default function VideoTile(props) {
+  function clickHandler() {
+    props.setCurrentVideoHandler(props.video);
+  }
+
   return (
     <>
-      <Link to={`/youtube/${props.video.title}`} key={props.index}>
+      <Link
+        onClick={clickHandler}
+        to={`/youtube/${props.video.title}`}
+        key={props.index}
+      >
         <div className='videoTile'>
           <img
             className='videoTileThumbnail'

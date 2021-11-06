@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import VideoTile from '../videoTile/VideoTile';
 import './youtube.css';
 
-export default function Youtube() {
+export default function Youtube(props) {
   // TODO pull all videos from database, get each thumbnail, and use it to create a route to the video
   const [videos, setVideos] = useState([]);
 
@@ -20,7 +20,14 @@ export default function Youtube() {
   }, []);
 
   const VIDEO_TILES = videos.map((video, index) => {
-    return <VideoTile key={index} video={video} index={index} />;
+    return (
+      <VideoTile
+        key={index}
+        video={video}
+        index={index}
+        setCurrentVideoHandler={props.setCurrentVideoHandler}
+      />
+    );
   });
 
   return <div id='homeContainer'>{VIDEO_TILES}</div>;

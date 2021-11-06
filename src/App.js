@@ -21,12 +21,16 @@ getStorage(APP);
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const [currentVideo, setCurrentVideo] = useState({});
 
   function logInOutClickHandler() {
     setLoggedIn((prevState) => !prevState);
   }
   function inputOnChangeHandler(event) {
     setInputValue(event.target.value);
+  }
+  function setCurrentVideoHandler(input) {
+    setCurrentVideo(input);
   }
 
   return (
@@ -92,10 +96,19 @@ function App() {
             element={<SearchResults inputValue={inputValue} />}
           />
         )}
-        <Route path='//*' element={<Youtube />} />
+        <Route
+          path='//*'
+          element={<Youtube setCurrentVideoHandler={setCurrentVideoHandler} />}
+        />
         <Route path='/upload' element={<Upload loggedIn={loggedIn} />} />
-        <Route path='/youtube/' element={<Youtube />} />
-        <Route path='/youtube/:id' element={<Video />} />
+        <Route
+          path='/youtube/'
+          element={<Youtube setCurrentVideoHandler={setCurrentVideoHandler} />}
+        />
+        <Route
+          path='/youtube/:id'
+          element={<Video currentVideo={currentVideo} />}
+        />
       </Routes>
     </>
   );
