@@ -1,4 +1,5 @@
+import './video.css';
+
 export default function Video(props) {
-  console.log(props.video);
-  return <div>hello!</div>;
+  return <div id='videoPlayer'>hello!</div>;
 }

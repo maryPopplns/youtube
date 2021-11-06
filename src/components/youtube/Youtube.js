@@ -1,9 +1,9 @@
 import { getFirestore, collection, query, getDocs } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import VideoTile from '../videoTile/VideoTile';
-import './home.css';
+import './youtube.css';
 
-export default function Home() {
+export default function Youtube() {
   // TODO pull all videos from database, get each thumbnail, and use it to create a route to the video
   const [videos, setVideos] = useState([]);
 

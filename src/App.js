@@ -3,15 +3,15 @@ import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
-import Index from './components/index/Index';
+import Video from './components/video/Video';
 import firebaseConfig from './firebase-config';
 import Login from './components/header/Login';
 import Logout from './components/header/Logout';
 import YouTubeLogo from './components/header/YouTubeLogo';
 import SearchResults from './components/searchResults/SearchResults';
 import Upload from './components/upload/Upload';
-import Home from './components/home/Home';
 import defaultPofile from './assets/profile_placeholder.png';
+import Youtube from './components/youtube/Youtube';
 import './App.css';
 
 // initialize firebase/storage
@@ -34,7 +34,7 @@ function App() {
       <header>
         <div id='leftHeader'>
           <i id='hamburgerMenuIcon' className='fas fa-bars'></i>
-          <Link to='/home'>
+          <Link to='/youtube'>
             <YouTubeLogo />
           </Link>
         </div>
@@ -92,9 +92,10 @@ function App() {
             element={<SearchResults inputValue={inputValue} />}
           />
         )}
-        <Route path='/' element={<Index />} />
+        <Route path='//*' element={<Youtube />} />
         <Route path='/upload' element={<Upload loggedIn={loggedIn} />} />
-        <Route path='/home/*' element={<Home />} />
+        <Route path='/youtube/' element={<Youtube />} />
+        <Route path='/youtube/:id' element={<Video />} />
       </Routes>
     </>
   );

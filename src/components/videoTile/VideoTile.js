@@ -5,7 +5,7 @@ import './videoTile.css';
 export default function VideoTile(props) {
   return (
     <>
-      <Link to={`/video/${props.video.title}`} key={props.index}>
+      <Link to={`/youtube/${props.video.title}`} key={props.index}>
         <div className='videoTile'>
           <img
             className='videoTileThumbnail'
@@ -14,12 +14,6 @@ export default function VideoTile(props) {
           ></img>
         </div>
       </Link>
-      <Routes>
-        <Route
-          path={`/video/${props.video.title}`}
-          element={<Video video={props.video} />}
-        />
-      </Routes>
     </>
   );
 }
