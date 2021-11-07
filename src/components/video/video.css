@@ -1,4 +1,13 @@
-#videoPlayer {
-  margin-top: 64px;
-  /* color: white; */
+body {
+  background: black;
 }
+
+#videoPlayer {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+  color: white;
+}
+
+/* #videoContainer {
+} */
