@@ -107,7 +107,7 @@ function App() {
         />
         <Route
           path='/youtube/:id'
-          element={<Video currentVideo={currentVideo} />}
+          element={<Video currentVideo={currentVideo} loggedIn={loggedIn} />}
         />
       </Routes>
     </>

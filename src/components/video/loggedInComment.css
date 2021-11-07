@@ -1,0 +1,14 @@
+#commentForm {
+  display: flex;
+  align-items: center;
+}
+
+#newComment {
+  height: 4em;
+  width: 30em;
+  box-sizing: border-box;
+}
+
+#submitCommentButton {
+  height: 4em;
+}

@@ -1,3 +1,5 @@
+import LoggedInComment from './LoggedInComment';
+import LoggedOutComment from './LoggedOutComment';
 import './video.css';
 
 export default function Video(props) {
@@ -11,6 +13,8 @@ export default function Video(props) {
           controls
         />
       </div>
+      {/* TODO if the user is signed in allow to make comments */}
+      {props.loggedIn ? <LoggedInComment /> : <LoggedOutComment />}
     </div>
   );
 }
