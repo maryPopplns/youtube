@@ -1,5 +1,4 @@
 import './video.css';
-import ReactPlayer from 'react-player/lazy';
 
 export default function Video(props) {
   return (
