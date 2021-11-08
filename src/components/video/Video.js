@@ -14,7 +14,12 @@ export default function Video(props) {
         />
       </div>
       {/* TODO if the user is signed in allow to make comments */}
-      {props.loggedIn ? <LoggedInComment /> : <LoggedOutComment />}
+      {props.loggedIn ? (
+        <LoggedInComment currentVideo={props.currentVideo} />
+      ) : (
+        <LoggedOutComment />
+      )}
+      <div id='commentContainer'></div>
     </div>
   );
 }

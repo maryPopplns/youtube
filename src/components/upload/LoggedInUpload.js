@@ -53,6 +53,7 @@ export default function LoggedInUpload() {
         tags: videoTags,
         timestamp: serverTimestamp(),
         uploader: getAuth().currentUser.displayName,
+        comments: [],
       });
 
       await setVideoTitle('');

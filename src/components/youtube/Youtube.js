@@ -13,7 +13,9 @@ export default function Youtube(props) {
       const QUERY = query(collection(getFirestore(), 'youtube'));
       const SNAPSHOT = await getDocs(QUERY);
       await SNAPSHOT.forEach((doc) => {
-        videos.push(doc.data());
+        const DATA = doc.data();
+        DATA.id = doc.id;
+        videos.push(DATA);
       });
       await setVideos(videos);
     })();
