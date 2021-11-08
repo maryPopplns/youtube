@@ -1,13 +1,9 @@
-// import { useEffect } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 import './comment.css';
 
 export default function Comment(props) {
   const UPLOAD_DATE = props.comment.timestamp.toDate();
   const DIFFERENCE = formatDistanceToNow(UPLOAD_DATE);
-  // useEffect(() => {
-  //   console.log(UPLOAD_DATE);
-  // }, [props]);
 
   console.log(props.comment);
   return (
