@@ -1,8 +1,25 @@
+import { useState, useEffect } from 'react';
+import { doc, onSnapshot, getFirestore } from 'firebase/firestore';
+import Comment from './Comment';
 import LoggedInComment from './LoggedInComment';
 import LoggedOutComment from './LoggedOutComment';
 import './video.css';
 
 export default function Video(props) {
+  const [commentList, setCommentList] = useState([]);
+
+  useEffect(() => {
+    const DOCUMENT = doc(getFirestore(), 'youtube', props.currentVideo.id);
+    const unsub = onSnapshot(DOCUMENT, (doc) => {
+      setCommentList(doc.data().comments);
+    });
+    return unsub;
+  }, [props]);
+
+  const COMMENTS = commentList.map((comment, index) => (
+    <Comment key={index} comment={comment} />
+  ));
+
   return (
     <div id='videoPlayer'>
       <div id='videoContainer'>
@@ -19,7 +36,7 @@ export default function Video(props) {
       ) : (
         <LoggedOutComment />
       )}
-      <div id='commentContainer'></div>
+      <div id='commentContainer'>{COMMENTS}</div>
     </div>
   );
 }

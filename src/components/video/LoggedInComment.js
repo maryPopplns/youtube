@@ -1,52 +1,37 @@
+import { useState } from 'react';
 import './loggedInComment.css';
-import { formatDistanceToNow } from 'date-fns';
-import { useState, useEffect } from 'react';
-import { APP } from '../../App.js';
 import { getAuth } from 'firebase/auth';
-import {
-  doc,
-  updateDoc,
-  arrayUnion,
-  serverTimestamp,
-  getFirestore,
-} from 'firebase/firestore';
+import { doc, updateDoc, arrayUnion, getFirestore } from 'firebase/firestore';
 
 export default function LoggedInComment(props) {
   const [comment, setComment] = useState('');
 
-  function commentChangeHandler(event) {
-    setComment(event.target.value);
-  }
+  const CHANGE_HANDLER = (event) => setComment(event.target.value);
 
-  useEffect(() => {
-    // console.log(props.currentVideo.id);
-    // console.log(DOCUMENT);
-  }, []);
-
-  // const UPLOAD_DATE = props.currentVideo.timestamp.toDate();
-  // const DIFFERENCE = formatDistanceToNow(UPLOAD_DATE);
   async function submitHandler(event) {
+    const TEXT_AREA = document.getElementById('newComment');
     event.preventDefault();
-    if (comment) {
+    if (TEXT_AREA.value) {
       const DOCUMENT = doc(getFirestore(), 'youtube', props.currentVideo.id);
-      const USER = getAuth().currentUser.displayName;
+      const { displayName, photoURL } = getAuth().currentUser;
       const NEW_COMMENT = {
-        USER,
-        comment,
+        displayName,
+        photoURL,
+        comment: TEXT_AREA.value,
         timestamp: new Date(),
       };
       await updateDoc(DOCUMENT, {
         comments: arrayUnion(NEW_COMMENT),
       });
-      await setComment('');
+      TEXT_AREA.value = '';
     }
   }
 
   return (
     <form id='commentForm' onSubmit={submitHandler}>
       <textarea
+        onChange={CHANGE_HANDLER}
         value={comment}
-        onChange={commentChangeHandler}
         id='newComment'
       ></textarea>
       <button id='submitCommentButton'></button>

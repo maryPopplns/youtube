@@ -51,7 +51,7 @@ export default function LoggedInUpload() {
         title: videoTitle,
         description: videoDescription,
         tags: videoTags,
-        timestamp: new Date(),
+        timestamp: serverTimestamp(),
         uploader: getAuth().currentUser.displayName,
         comments: [],
       });

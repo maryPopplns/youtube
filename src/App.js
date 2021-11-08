@@ -18,7 +18,7 @@ import './App.css';
 const APP = initializeApp(firebaseConfig);
 getStorage(APP);
 
-function App() {
+export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [currentVideo, setCurrentVideo] = useState({});
@@ -113,5 +113,3 @@ function App() {
     </>
   );
 }
-
-export { App, APP };
