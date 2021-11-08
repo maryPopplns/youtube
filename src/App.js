@@ -49,21 +49,11 @@ export default function App() {
             value={inputValue}
             id='searchInput'
           ></input>
-          {/* only renders a link when theres text in the input */}
-          {inputValue && (
-            <Link to='/searchResults'>
-              <button id='searchSubmitButton'>
-                <i id='searchMagIcon' className='fas fa-search'></i>
-              </button>
-            </Link>
-          )}
-          {/* TODO need to change logic, this sucks  */}
-          {!inputValue && (
+          <Link to={`/searchResults/${inputValue}`}>
             <button id='searchSubmitButton'>
               <i id='searchMagIcon' className='fas fa-search'></i>
             </button>
-          )}
-          {/* only renders a link when theres text in the input */}
+          </Link>
         </form>
         <div id='rightHeaderContainer'>
           <Link to='/upload'>
@@ -90,12 +80,10 @@ export default function App() {
       </header>
 
       <Routes>
-        {inputValue && (
-          <Route
-            path='/searchResults'
-            element={<SearchResults inputValue={inputValue} />}
-          />
-        )}
+        <Route
+          path='/searchResults/:id'
+          element={<SearchResults inputValue={inputValue} />}
+        />
         <Route
           path='//*'
           element={<Youtube setCurrentVideoHandler={setCurrentVideoHandler} />}

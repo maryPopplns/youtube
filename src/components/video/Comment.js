@@ -5,7 +5,6 @@ export default function Comment(props) {
   const UPLOAD_DATE = props.comment.timestamp.toDate();
   const DIFFERENCE = formatDistanceToNow(UPLOAD_DATE);
 
-  console.log(props.comment);
   return (
     <div className='individualComment'>
       <div>{props.comment.comment}</div>

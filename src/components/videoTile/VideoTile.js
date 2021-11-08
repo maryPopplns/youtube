@@ -1,5 +1,4 @@
-import { Link, Routes, Route } from 'react-router-dom';
-import Video from '../video/Video';
+import { Link } from 'react-router-dom';
 import './videoTile.css';
 
 export default function VideoTile(props) {
