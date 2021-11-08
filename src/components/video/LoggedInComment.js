@@ -1,31 +1,45 @@
 import './loggedInComment.css';
+import { formatDistanceToNow } from 'date-fns';
 import { useState, useEffect } from 'react';
 import { APP } from '../../App.js';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore/lite';
-import { doc, updateDoc, arrayUnion } from 'firebase/firestore';
+import {
+  doc,
+  updateDoc,
+  arrayUnion,
+  serverTimestamp,
+  getFirestore,
+} from 'firebase/firestore';
 
 export default function LoggedInComment(props) {
   const [comment, setComment] = useState('');
 
-  const DB = getFirestore(APP);
-
   function commentChangeHandler(event) {
     setComment(event.target.value);
   }
+
   useEffect(() => {
-    const USER = getAuth().currentUser;
-    console.log(USER);
-    // const TEXT = event.target.value;
-    // console.log(TEXT);
+    // console.log(props.currentVideo.id);
+    // console.log(DOCUMENT);
   }, []);
 
+  // const UPLOAD_DATE = props.currentVideo.timestamp.toDate();
+  // const DIFFERENCE = formatDistanceToNow(UPLOAD_DATE);
   async function submitHandler(event) {
     event.preventDefault();
-    // const DOCUMENT = doc(DB, 'youtube', props.currentVideo.id);
-    // await updateDoc(DOCUMENT, {
-    //   comments: arrayUnion(),
-    // });
+    if (comment) {
+      const DOCUMENT = doc(getFirestore(), 'youtube', props.currentVideo.id);
+      const USER = getAuth().currentUser.displayName;
+      const NEW_COMMENT = {
+        USER,
+        comment,
+        timestamp: new Date(),
+      };
+      await updateDoc(DOCUMENT, {
+        comments: arrayUnion(NEW_COMMENT),
+      });
+      await setComment('');
+    }
   }
 
   return (

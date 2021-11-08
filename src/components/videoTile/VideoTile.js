@@ -20,6 +20,7 @@ export default function VideoTile(props) {
             src={props.video.thumbnailPath}
             alt={props.title}
           ></img>
+          <div className='videoTileTitle'>{props.video.title}</div>
         </div>
       </Link>
     </>
